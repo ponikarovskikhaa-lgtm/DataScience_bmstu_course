@@ -7,16 +7,16 @@ app = Flask(__name__)
 @app.route('/', methods=["get", "post"])
 def hello():
     message = ""
-    if request.method == "POST":
+    if request.method == "post":
         area = request.form.get("area")
         cost = calc_cost(area)
         message = f"Стоимость квартиры: {cost} руб."
     return render_template("index.html", message=message)
 
-@app.route("/login/", methods=["get", "post"])
+@app.route("/login", methods=["get", "post"])
 def login():
     message = "Место под сообщение"
-    if request.method == "POST":
+    if request.method == "post":
         username = request.form.get("username")
         password = request.form.get("password")
         if username != "123":
@@ -26,4 +26,4 @@ def login():
     return render_template("login.html", message=message)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
