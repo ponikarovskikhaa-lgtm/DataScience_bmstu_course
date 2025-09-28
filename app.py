@@ -3,7 +3,7 @@ from process import calc_cost
 
 app = Flask(__name__)
 
-@app.route('/test', methods=('GET','POST'))
+@app.route('/', methods=('GET','POST'))
 def hello():
     message = ""
     if request.method == "POST":
@@ -12,6 +12,7 @@ def hello():
         message = f"Стоимость квартиры: {cost} руб."
     return render_template("index.html", message=message)
 
+@app.route("/login", methods=('GET','POST'))
 @app.route("/login/", methods=('GET','POST'))
 def login():
     message = "Место под сообщение"
