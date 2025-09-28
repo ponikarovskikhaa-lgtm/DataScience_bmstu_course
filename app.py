@@ -21,6 +21,7 @@ def login():
         password = request.form.get("password")
         if username != "123":
             message = "Неправильное имя пользователя"
+            #uiefwhuiwhef
         else:
             message = f"Имя пользователя: {username}, пароль {password}"
     return render_template("login.html", message=message)
