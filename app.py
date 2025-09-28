@@ -1,9 +1,23 @@
 from flask import Flask, render_template, request
 import pandas as pd
 import pickle
+import os
 
-MODELS_PATH = '../models/'
+MODELS_PATH = 'src/models/'
 
+def check_models():
+    print(MODELS_PATH,'www')
+    required_files = [
+        'preprocessor1', 'model1_best',
+        'preprocessor2', 'model2_best',
+        'preprocessor3', 'model3_1'
+    ]
+    missing = []
+    for f in required_files:
+        if not os.path.exists(os.path.join(MODELS_PATH, f)):
+            missing.append(f)
+    if missing:
+        raise RuntimeError(f"Отсутствуют файлы моделей: {missing}. Проверьте папку {MODELS_PATH}")
 
 # Функция для извлечения признаков из данных формы
 def get_data_from_form(features, params):
@@ -80,13 +94,14 @@ def get_data_from_form(features, params):
 
 # Загрузка объекта pickle
 def load_pickle_obj(filename):
-    file = open(MODELS_PATH + filename, 'rb')
-    obj = pickle.load(file)
-    file.close()
+    filepath = os.path.join(MODELS_PATH, filename)
+    with open(filepath, 'rb') as f:
+        return pickle.load(f)
+    filepath.close()
     return obj
 
 
-import os
+
 
 # Укажите путь к папке src/templates относительно app.py
 template_dir = os.path.join(os.path.dirname(__file__), 'src', 'templates')
@@ -238,5 +253,7 @@ def main_page():
 def url_map():
     return str(app.url_map)
 
-# if __name__ == "__main__":
-#     app.run()
+if __name__ == "__main__":
+    check_models()
+    app.run(port=3000)   
+    
