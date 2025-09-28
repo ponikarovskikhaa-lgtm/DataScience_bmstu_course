@@ -53,7 +53,7 @@
 
 д)     • в специальном разделе появится результат в виде числа с плавающей точкой.
 
-
+Flask-приложение развернуто на стороннем сервере Render.com: https://datascience-bmstu-course-1-prod.onrender.com/
 Ход выполнения и результаты работы представлены в файлах:
 * [Презентация](/docs/Presentation_Ponikarovskikh.pdf)
 * [Пояснительная записка](/docs/Documentation_Ponikarovskikh.pdf)
