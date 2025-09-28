@@ -86,7 +86,14 @@ def load_pickle_obj(filename):
     return obj
 
 
-app = Flask(__name__)
+import os
+
+# Укажите путь к папке src/templates относительно app.py
+template_dir = os.path.join(os.path.dirname(__file__), 'src', 'templates')
+static_dir = os.path.join(os.path.dirname(__file__), 'src', 'static')
+app = Flask(__name__,
+            template_folder=template_dir,
+            static_folder=static_dir)
 
 
 @app.route('/features/', methods=['post', 'get'])
@@ -231,5 +238,5 @@ def main_page():
 def url_map():
     return str(app.url_map)
 
-
-app.run(port=3000)
+if __name__ == "__main__":
+    app.run(port=3000)

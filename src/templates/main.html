@@ -1,15 +1,41 @@
+<!-- src/templates/main.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Выпускная квалификационная работа</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ВКР: Прогнозирование свойств композитов</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-<h1>Выпускная квалификационная работа по курсу «Data Science»</h1>
-<h2>Прогнозирование конечных свойств новых материалов (композиционных материалов)</h2>
+    <header>
+        <div class="container">
+            <h1>Выпускная квалификационная работа</h1>
+            <h2>Прогнозирование конечных свойств новых материалов (композиционных материалов)</h2>
+            <div class="nav-links">
+                <a href="/model_1_2/">Модуль упругости и прочность</a>
+                <a href="/model_3/">Соотношение матрица-наполнитель</a>
+            </div>
+        </div>
+    </header>
 
-<p><a href="/model_1_2/">Прогнозирование модуля упругости при растяжении и прочности при растяжении</a></p>
-<p><a href="/model_3/">Прогнозирование соотношения матрица-наполнитель</a></p>
+    <div class="container">
+        <div class="card">
+            <h2>Описание проекта</h2>
+            <p>Данное приложение позволяет прогнозировать ключевые свойства композиционных материалов на основе входных параметров:</p>
+            <ul style="margin: 16px 0 0 20px;">
+                <li>Модуль упругости при растяжении (ГПа)</li>
+                <li>Прочность при растяжении (МПа)</li>
+                <li>Оптимальное соотношение матрица-наполнитель</li>
+            </ul>
+            <p style="margin-top: 16px;">Используются машинные модели, обученные на реальных данных.</p>
+        </div>
+    </div>
 
+    <footer>
+        <div class="container">
+            Data Science Course • BMSTU • 2025
+        </div>
+    </footer>
 </body>
 </html>
