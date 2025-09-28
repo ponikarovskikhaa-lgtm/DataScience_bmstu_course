@@ -12,7 +12,6 @@ def hello():
         message = f"Стоимость квартиры: {cost} руб."
     return render_template("index.html", message=message)
 
-@app.route("/login", methods=['post', 'get'])
 @app.route("/login/", methods=['post', 'get'])
 def login():
     message = "Место под сообщение"
@@ -27,4 +26,4 @@ def login():
     return render_template("login.html", message=message)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=3000)
