@@ -6,5 +6,10 @@ app = Flask(__name__)
 def hello():
     return "Hello!"
 
-if __name__ == "__main__":
-    app.run()
+@app.route("/login/")
+def login():
+    return render_template("login.html")
+
+#if __name__ == "__main__":
+#    app.run()
+app.run()
