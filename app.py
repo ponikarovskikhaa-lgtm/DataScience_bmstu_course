@@ -238,5 +238,5 @@ def main_page():
 def url_map():
     return str(app.url_map)
 
-if __name__ == "__main__":
-    app.run(port=3000)
+# if __name__ == "__main__":
+#     app.run()
