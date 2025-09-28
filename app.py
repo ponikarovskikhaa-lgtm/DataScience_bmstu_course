@@ -8,7 +8,8 @@ def hello():
 
 @app.route("/login/", methods=["get", "post"])
 def login():
-    return render_template("login.html")
+    message = "Место порд сообщение"
+    return render_template("login.html", message=message)
 
 if __name__ == "__main__":
     app.run()
